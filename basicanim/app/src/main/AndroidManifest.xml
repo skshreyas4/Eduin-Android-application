@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Seconds" />
+        <activity android:name=".Screen2" />
+        <activity android:name=".Screen3"/>
+        <activity android:name=".SearchResult"/>
     </application>
 
 </manifest>

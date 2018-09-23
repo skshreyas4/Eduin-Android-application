@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/Schoolname"
+        android:layout_width="244dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="59dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/Addss"
+        android:layout_width="240dp"
+        android:layout_height="39dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/Schoolname"
+        android:layout_marginTop="57dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/contactinfo"
+        android:layout_width="240dp"
+        android:layout_height="33dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/Schoolname"
+        android:layout_marginTop="117dp"
+        android:text="textview" />
+
+
+
+
+</RelativeLayout>
