@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/ivParallax"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/schoolback"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:title="School Detail"
+                />
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/circularimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="21dp"
+                android:src="@drawable/circle_img" />
+
+            <Button
+                android:id="@+id/favourite"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/fav_button"
+                android:layout_alignParentEnd="true"
+                android:onClick="favourite"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentRight="true" />
+
+            <Button
+                android:id="@+id/website"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/circularimage"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/buttonimg"
+                android:onClick="website"
+                android:text="Website"
+                android:textColor="#FFFFFF"
+                android:layout_alignParentLeft="true" />
+
+            <Button
+                android:id="@+id/directions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/circularimage"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_toEndOf="@id/website"
+                android:background="@drawable/buttonimg"
+                android:onClick="directions"
+                android:text="directions"
+                android:textColor="#FFFFFF"
+                android:layout_toRightOf="@id/website" />
+
+            <Button
+                android:id="@+id/reviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/circularimage"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_toEndOf="@+id/directions"
+                android:background="@drawable/buttonimg"
+                android:onClick="reviews"
+                android:text="reviews"
+                android:textColor="#FFFFFF"
+                android:layout_toRightOf="@+id/directions" />
+
+            <ImageView
+                android:id="@+id/addimg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/addressimg"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/website"
+                android:layout_marginTop="40dp"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/website"
+                android:layout_marginTop="40dp"
+                android:layout_toRightOf="@id/addimg"
+                android:layout_marginLeft="6dp"
+                android:text="Address:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/address"
+                android:layout_below="@id/website"
+                android:layout_toEndOf="@id/address"
+                android:layout_toRightOf="@id/address"
+                android:text="18th K.M. Bannerghatta Main Road, Bengaluru, Karnataka 560083"
+                android:textSize="20dp"
+                android:layout_marginLeft="6dp"
+                android:textColor="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/phoneimg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/phoneimg"
+                android:layout_below="@id/textView"
+                android:layout_marginTop="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/phoneimg"
+                android:text="Phone:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="6dp"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/phone"
+                android:layout_alignTop="@id/phone"
+                android:layout_below="@id/textView"
+                android:layout_toEndOf="@id/phone"
+                android:layout_toRightOf="@id/phone"
+                android:text="099020 44113"
+                android:layout_marginLeft="6dp"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/coursesimg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/coursesimg"
+                android:layout_below="@id/textView2"
+                android:layout_marginTop="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:id="@+id/coursesoff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView2"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/coursesimg"
+                android:text="Courses Offered:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="6dp"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/coursesoff"
+                android:layout_below="@id/textView2"
+                android:layout_toEndOf="@id/coursesoff"
+                android:layout_toRightOf="@id/coursesoff"
+                android:text="TextView"
+                android:textSize="20dp"
+                android:layout_marginLeft="6dp"
+                android:textColor="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/extraimg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/extraimg"
+                android:layout_marginTop="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/textView3"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:id="@+id/extracurricular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView3"
+                android:layout_toRightOf="@id/extraimg"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="6dp"
+                android:text="Extra Curricular:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/extracurricular"
+                android:layout_below="@id/textView3"
+                android:layout_toEndOf="@id/extracurricular"
+                android:layout_toRightOf="@id/extracurricular"
+                android:text="TextView"
+                android:layout_marginLeft="6dp"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF" />
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.design.widget.CoordinatorLayout>
