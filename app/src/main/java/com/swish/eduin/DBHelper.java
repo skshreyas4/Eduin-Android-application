@@ -77,6 +77,7 @@ public class DBHelper extends SQLiteOpenHelper {
         value.put(TYPE, "Institute");
         value.put(CATEGORY, "Sports");
         value.put(PH_NO, "9738460417");
+        value.put(IMG,"school.jpg");
         database.insert(TABLE_NAME, null, value);
 
 
