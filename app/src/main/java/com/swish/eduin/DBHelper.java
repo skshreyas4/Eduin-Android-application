@@ -77,7 +77,6 @@ public class DBHelper extends SQLiteOpenHelper {
         value.put(TYPE, "Institute");
         value.put(CATEGORY, "Sports");
         value.put(PH_NO, "9738460417");
-        value.put(IMG,"school.jpg");
         database.insert(TABLE_NAME, null, value);
 
 
@@ -219,6 +218,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values4.put(CATEGORY, "primary, high school");
         values4.put(SYLLABUS, "icse, cbse, state");
         values4.put(PH_NO, "022-28573205");
+        value4.put()
         database.insert(TABLE_NAME, null, values4);
 
         ContentValues values5 = new ContentValues();
