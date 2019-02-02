@@ -38,9 +38,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String PH_NO = "phno";
 
+    private static final String IMG= "img";
+
     private static final String CREATE_QUERY = "CREATE TABLE " + TABLE_NAME + "("
             + SL_NO + " INTEGER PRIMARY KEY AUTOINCREMENT," + NAME + " TEXT," + LOCATION + " TEXT," + AREA + " TEXT," + TYPE + " TEXT,"
-            + CATEGORY + " TEXT," + SYLLABUS + " TEXT," + PH_NO + " TEXT" + ")";
+            + CATEGORY + " TEXT," + SYLLABUS + " TEXT," + PH_NO + " TEXT," + IMG + " TEXT" + ")";
 
     private static final String DROP_QUERY = "DROP TABLE IF EXISTS " + TABLE_NAME;
     private static final String SELECT_QUERY = "SELECT * FROM " + TABLE_NAME;
