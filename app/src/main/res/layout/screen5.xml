@@ -97,7 +97,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_toEndOf="@id/website"
                 android:background="@drawable/buttonimg"
-                android:onClick="directions"
+
                 android:text="directions"
                 android:textColor="#FFFFFF"
                 android:layout_toRightOf="@id/website" />
@@ -184,10 +184,9 @@
                 android:layout_below="@id/textView"
                 android:layout_toEndOf="@id/phone"
                 android:layout_toRightOf="@id/phone"
-                android:text="099020 44113"
+                android:text="+91 88921-89821"
                 android:layout_marginLeft="6dp"
-                android:textSize="20dp"
-                android:textColor="#FFFFFF" />
+                android:textSize="20dp" />
 
             <ImageView
                 android:id="@+id/coursesimg"

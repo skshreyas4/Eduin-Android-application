@@ -2,4 +2,5 @@
     <string name="app_name">EduIn</string>
     <string name="paralax">Parallax image</string>
     <string name="expand">expand</string>
+    <string name="google_maps_api_key">AIzaSyAaxxHHAgns8dqZ-KxwURijNC8QA0HCi1g</string>
 </resources>
