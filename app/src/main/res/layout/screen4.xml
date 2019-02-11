@@ -35,7 +35,7 @@
         android:id="@+id/spinner3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="44dp"
         android:background="@android:drawable/btn_dropdown"
         app:layout_constraintTop_toBottomOf="@+id/spinner2"
         tools:ignore="MissingConstraints"
@@ -44,7 +44,7 @@
     </Spinner>
 
     <Button
-        android:id="@+id/accept"
+        android:id="@+id/Accept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
@@ -63,7 +63,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/Cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -71,6 +71,7 @@
         android:background="@drawable/mybutton"
         android:fontFamily="cursive"
         android:text="CANCEL"
+        android:onClick="cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner3"
         tools:ignore="MissingConstraints" />

@@ -6,8 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
     ModuleClass moduleclass;
@@ -16,7 +18,7 @@ public class DBHelper extends SQLiteOpenHelper {
         super(context, name, factory, version);
     }
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
 
     private static final String DATABASE_NAME = "SchoolDB";
 
@@ -38,11 +40,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String PH_NO = "phno";
 
-    private static final String IMG= "img";
-
     private static final String CREATE_QUERY = "CREATE TABLE " + TABLE_NAME + "("
             + SL_NO + " INTEGER PRIMARY KEY AUTOINCREMENT," + NAME + " TEXT," + LOCATION + " TEXT," + AREA + " TEXT," + TYPE + " TEXT,"
-            + CATEGORY + " TEXT," + SYLLABUS + " TEXT," + PH_NO + " TEXT," + IMG + " TEXT" + ")";
+            + CATEGORY + " TEXT," + SYLLABUS + " TEXT," + PH_NO + " TEXT"  + ")";
 
     private static final String DROP_QUERY = "DROP TABLE IF EXISTS " + TABLE_NAME;
     private static final String SELECT_QUERY = "SELECT * FROM " + TABLE_NAME;
@@ -63,7 +63,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(CREATE_QUERY);
+        db.execSQL(DROP_QUERY);
         onCreate(db);
     }
 
@@ -72,7 +72,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues value = new ContentValues();
         value.put(NAME, "AQUA SWIMMING ACADEMY");
-        value.put(LOCATION, "C/O The Quorum hotel,Vinoba road,Mysore,opp to DC office-570005");
+        value.put(LOCATION, "South");
         value.put(AREA, "Vinoba road");
         value.put(TYPE, "Institute");
         value.put(CATEGORY, "Sports");
@@ -82,7 +82,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues value1 = new ContentValues();
         value1.put(NAME, "ART PLANET");
-        value1.put(LOCATION, "#31, above Kanva mart near Akshay Bhandar,Kuvempu Nagar Mysore-570023");
+        value1.put(LOCATION, "South");
         value1.put(AREA, "Kuvempu Nagar");
         value1.put(TYPE, "Institute");
         value1.put(CATEGORY, "Drawing,Painting,Music,Dancing");
@@ -92,7 +92,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues value2 = new ContentValues();
         value2.put(NAME, "Bollywood Studio");
-        value2.put(LOCATION, "Vanivilas double road,Lakshmipuram,Mysore-570004");
+        value2.put(LOCATION, "South");
         value2.put(AREA, "Lakshmipuram");
         value2.put(TYPE, "Institue");
         value2.put(CATEGORY, "Dancing,Music");
@@ -102,7 +102,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues value3 = new ContentValues();
         value3.put(NAME, "Champaka Academy");
-        value3.put(LOCATION, "1609,Vishwamanava double road,Across,3rd main,DVC layout,Ramakrishna nagara Mysore-570022");
+        value3.put(LOCATION, "South");
         value3.put(AREA, "Ramakrishna nagara");
         value3.put(TYPE, "Institute");
         value3.put(CATEGORY, "Music,Dancing,Drawing,Acting");
@@ -112,7 +112,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues value4 = new ContentValues();
         value4.put(NAME, "GSS School of music and technology");
-        value4.put(LOCATION, "#1104,Udayaravi road,Kuvempu nagar,Mysore-570023");
+        value4.put(LOCATION, "North");
         value4.put(AREA, "Kuvempu Nagar");
         value4.put(TYPE, "Institute");
         value4.put(CATEGORY, "Music");
@@ -122,7 +122,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues value5 = new ContentValues();
         value5.put(NAME, "T.I.M.E");
-        value5.put(LOCATION, "5487,1st floor,above SBM bank,Vijayanagar watertank circle,2nd stage,Mysore-570016");
+        value5.put(LOCATION, "North");
         value5.put(AREA, "Vijayanagar");
         value5.put(TYPE, "Institute");
         value5.put(CATEGORY, "Tutorials,Abacus");
@@ -132,7 +132,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues value6 = new ContentValues();
         value6.put(NAME, "SIP Abacus Academy");
-        value6.put(LOCATION, "#56,1 floor,30th main,BSK 3rd stage,opp to KIMS,Bengaluru,Karnataka-560085");
+        value6.put(LOCATION, "North");
         value6.put(AREA, "Banashankari");
         value6.put(TYPE, "Institute");
         value6.put(CATEGORY, "Abacus,Tutorials");
@@ -142,7 +142,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues value7 = new ContentValues();
         value7.put(NAME, "Curiocity-School of creative art and design");
-        value7.put(LOCATION, "#209,Tank road,7th cross,Narasimha mohala,Mysore-570007");
+        value7.put(LOCATION, "North");
         value7.put(AREA, "Narasimha mohala");
         value7.put(TYPE, "Institute");
         value7.put(CATEGORY, "Music,Dancing,Drawing,Acting,Drama");
@@ -152,7 +152,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues value8 = new ContentValues();
         value8.put(NAME, "All Stars Basketball Academy");
-        value8.put(LOCATION, "JP Nagar,Mysore-570008");
+        value8.put(LOCATION, "North");
         value8.put(AREA, "JP Nagar");
         value8.put(TYPE, "Institute");
         value8.put(CATEGORY, "Sports");
@@ -162,7 +162,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues value9 = new ContentValues();
         value9.put(NAME, "Kalaspandana");
-        value9.put(LOCATION, "Mahila Samaja,JLB Road,Lakshmipuram,Mysore-570004");
+        value9.put(LOCATION, "North");
         value9.put(AREA, "Lakshmipuram");
         value9.put(TYPE, "Institute");
         value9.put(CATEGORY, "Music,Dancing,Acting");
@@ -172,102 +172,121 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(NAME, "MALAD CAMPUS");
-        values.put(LOCATION, "Marve Road, opp HDFC Bank, behind Garden Court Restaurant, Malad(W), Mumbai-400064");
+        values.put(LOCATION, "North");
         values.put(AREA, "Marve Road");
         values.put(TYPE, "School");
-        values.put(CATEGORY, "nursery, primary, high school");
-        values.put(SYLLABUS, "icse, cbse, state");
+        values.put(CATEGORY, "Nursery");
+        values.put(CATEGORY,"Primary");
+        values.put(CATEGORY,"Highschool");
+        values.put(SYLLABUS, "Icse");
+        values.put(SYLLABUS, "Cbse");
+        values.put(SYLLABUS, "State");
         values.put(PH_NO, "7777016450");
         database.insert(TABLE_NAME, null, values);
 
         ContentValues values1 = new ContentValues();
         values1.put(NAME, "BORIVALLI CAMPUS");
-        values1.put(LOCATION, "Plot no 3/3A R.S.C-5,opp Sridarshan Society,Haridas nagar,Borivali west,Mumbai-400092");
+        values1.put(LOCATION, "North");
         values1.put(AREA, "Haridas nagar");
         values1.put(TYPE, "school");
-        values1.put(CATEGORY, "nursery, primary, high school");
-        values1.put(SYLLABUS, "icse,cbse");
+        values1.put(CATEGORY, "Nursery");
+        values1.put(CATEGORY, "Primary");
+        values1.put(CATEGORY, "Highschool");
+        values1.put(SYLLABUS, "Icse");
+        values1.put(SYLLABUS,"Cbse");
         values1.put(PH_NO, "8454015666");
         database.insert(TABLE_NAME, null, values1);
 
         ContentValues values2 = new ContentValues();
         values2.put(NAME, "ORCHIDS THE INTERNATIONAL SCHOOL");
-        values2.put(LOCATION, "C.V.O.D Jain patashaala,SVP road,#84,Samuel street,Mumbai-400009");
+        values2.put(LOCATION, "North");
         values2.put(AREA, "Samuel Street");
         values2.put(TYPE, "school");
-        values2.put(CATEGORY, "nursery, primary");
-        values2.put(SYLLABUS, "icse, state");
+        values2.put(CATEGORY, "Nursery");
+        values2.put(CATEGORY,"Primary");
+        values2.put(SYLLABUS, "Icse");
+        values2.put(SYLLABUS, "State");
         values2.put(PH_NO, "022-65017104");
         database.insert(TABLE_NAME, null, values2);
 
         ContentValues values3 = new ContentValues();
         values3.put(NAME, "DSB INTERNATIONAL SCHOOL");
-        values3.put(LOCATION, "76,Warden road,Breach candy,Kumballa hill,Mumbai-400026");
+        values3.put(LOCATION, "North");
         values3.put(AREA, "Kumballa hill");
         values3.put(TYPE, "school");
-        values3.put(CATEGORY, "nursery, primary, high school");
-        values3.put(SYLLABUS, "cbse");
+        values3.put(CATEGORY, "Nursery");
+        values3.put(CATEGORY, "Primary");
+        values3.put(CATEGORY, "Highschool");
+        values3.put(SYLLABUS, "Cbse");
         values3.put(PH_NO, "022-23620110");
         database.insert(TABLE_NAME, null, values3);
 
         ContentValues values4 = new ContentValues();
         values4.put(NAME, "BOMBAY SCOTTISH SCHOOL");
-        values4.put(LOCATION, "Raheja vihar,Chandivali farmhouse,Powai,Mumbai-400072");
+        values4.put(LOCATION, "North");
         values4.put(AREA, "Powai");
         values4.put(TYPE, "school");
-        values4.put(CATEGORY, "primary, high school");
-        values4.put(SYLLABUS, "icse, cbse, state");
+        values4.put(CATEGORY, "Primary");
+        values4.put(CATEGORY, "Highschool");
+        values4.put(SYLLABUS, "Icse");
+        values4.put(SYLLABUS, "Cbse");
+        values4.put(SYLLABUS, "State");
         values4.put(PH_NO, "022-28573205");
-        value4.put()
         database.insert(TABLE_NAME, null, values4);
 
         ContentValues values5 = new ContentValues();
         values5.put(NAME, "BACHPAN PLAY SCHOOL");
-        values5.put(LOCATION, "#74,L-12,7/2 cross road,Saint mary’s road,N.R. mohalla,Mysore-570007");
+        values5.put(LOCATION, "South");
         values5.put(AREA, "N.R Mohalla");
         values5.put(TYPE, "school");
-        values5.put(CATEGORY, "nursery, primary");
-        values5.put(SYLLABUS, "icse, cbse, state");
+        values5.put(CATEGORY, "Nursery");
+        values5.put(CATEGORY, "Primary");
+        values5.put(SYLLABUS, "Icse");
+        values5.put(SYLLABUS, "Cbse");
+        values5.put(SYLLABUS, "State");
         values5.put(PH_NO, "08214244805");
         database.insert(TABLE_NAME, null, values5);
 
         ContentValues values6 = new ContentValues();
         values6.put(NAME, "KANGAROO KIDS CLUB(Preschool and Day-care)");
-        values6.put(LOCATION, "#1054,new Kantaraj Urs road,T.K layout 4 th stage,Mysore-570022");
+        values6.put(LOCATION, "South");
         values6.put(AREA, "T.K Layout");
         values6.put(TYPE, "school");
-        values6.put(CATEGORY, "nursery");
-        values6.put(SYLLABUS, "state");
+        values6.put(CATEGORY, "Nursery");
+        values6.put(SYLLABUS, "State");
         values6.put(PH_NO, "09108656644");
         database.insert(TABLE_NAME, null, values6);
 
         ContentValues values7 = new ContentValues();
         values7.put(NAME, "KIDS CAMPUS");
-        values7.put(LOCATION, "813,Contour road,Gokulam 2 nd stage,Gokulam,Mysore-570002");
+        values7.put(LOCATION, "South");
         values7.put(AREA, "Gokulam");
         values7.put(TYPE, "school");
-        values7.put(CATEGORY, "nursery, primary");
-        values7.put(SYLLABUS, "icse, cbse");
+        values7.put(CATEGORY, "Nursery");
+        values7.put(CATEGORY, "Primary");
+        values7.put(SYLLABUS, "Icse");
+        values7.put(SYLLABUS, "Cbse");
         values7.put(PH_NO, "09900923479");
         database.insert(TABLE_NAME, null, values7);
 
         ContentValues values8 = new ContentValues();
         values8.put(NAME, "TOM and JERRY PLAY HOME");
-        values8.put(LOCATION, "#MIG 37,HUDCO,BMT road,Gangotri layout,Mysore-570009");
+        values8.put(LOCATION, "South");
         values8.put(AREA, "BMT road");
         values8.put(TYPE, "school");
-        values8.put(CATEGORY, "nursery");
-        values8.put(SYLLABUS, "icse, state");
+        values8.put(CATEGORY, "Nursery");
+        values8.put(SYLLABUS, "Icse");
+        values8.put(SYLLABUS, "State");
         values8.put(PH_NO, "08212342134");
         database.insert(TABLE_NAME, null, values8);
 
         ContentValues values9 = new ContentValues();
         values9.put(NAME, "KIDDIE LAND");
-        values9.put(LOCATION, "#36, behind chinmaya vidyalaya, 4th main road, Jayalakshmipuram, Mysore-570012");
+        values9.put(LOCATION, "South");
         values9.put(AREA, "Jayalakshmipuram");
         values9.put(TYPE, "school");
-        values9.put(CATEGORY, "nursery");
-        values9.put(SYLLABUS, "state");
+        values9.put(CATEGORY, "Nursery");
+        values9.put(SYLLABUS, "State");
         values9.put(PH_NO, "23118976");
         database.insert(TABLE_NAME, null, values9);
 
@@ -293,7 +312,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 moduleclass.category = (cursor.getString(5));
                 moduleclass.syllabus = (cursor.getString(6));
                 moduleclass.phno = (cursor.getString(7));
-
                 arrayList.add(moduleclass);
                 cursor.moveToNext();
             }
@@ -303,25 +321,69 @@ public class DBHelper extends SQLiteOpenHelper {
         return arrayList;
     }
 
-    public ArrayList<ModuleClass> retriveData(String Location, String Syallabus, String Category) {
+    public List<ModuleClass> getAllNotes(String location, String syallabus, String category) {
+        List<ModuleClass> filter = new ArrayList<>();
+
+        // Select All Query
+        //String selectQuery = "SELECT  * FROM " + FilterClass.TABLE_NAME + " ORDER BY " +
+                //FilterClass.CATEGORY + " DESC";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE location = '" + location + "' AND syllabus= '" + syallabus + "' AND  category = '" + category + "'", null);
+
+
+        // looping through all rows and adding to list
+        Log.e("Row Count",cursor.getCount()+"");
+        if (cursor.moveToFirst()) {
+            do {
+//                FilterClass filterClass = new FilterClass();
+//                filterClass.setLocation(cursor.getString(cursor.getColumnIndex(FilterClass.LOCATION)));
+//                filterClass.setSyllabus(cursor.getString(cursor.getColumnIndex(FilterClass.SYLLABUS)));
+//                filterClass.setCategory(cursor.getString(cursor.getColumnIndex(FilterClass.CATEGORY)));
+
+                ModuleClass moduleClass=new ModuleClass();
+                moduleClass.setName(cursor.getString(cursor.getColumnIndex(FilterClass.NAME)));
+                moduleClass.setLocation(cursor.getString(cursor.getColumnIndex(FilterClass.LOCATION)));
+                moduleClass.setPhno(cursor.getString(cursor.getColumnIndex(FilterClass.PH_NO)));
+
+                filter.add(moduleClass);
+
+
+
+                //New Code
+                Log.e("Values :", cursor.getString(cursor.getColumnIndex(FilterClass.LOCATION)));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+
+        // close db connection
+        db.close();
+
+        // return notes list
+        return filter;
+    }
+
+    public ArrayList<String> searchData() {
         SQLiteDatabase database = this.getWritableDatabase();
-        ArrayList<ModuleClass> arrayList = new ArrayList<>();
-        Cursor cursor = database.rawQuery("select * from " + TABLE_NAME + " where Location = " + Location + ",where Syallabus= " + Syallabus + ",where Category=" + Category, null);
+        ArrayList<String> arrayList = new ArrayList<>();
+        Cursor cursor = database.rawQuery(" SELECT * FROM " + TABLE_NAME,null);
+
         if (cursor.moveToFirst())
         //adding a contact to list
         {
             for (int i = 0; i < cursor.getCount(); i++) {
-                ModuleClass moduleclass = new ModuleClass();//import line of code
-                moduleclass.Slno = Integer.parseInt(cursor.getString(0));
-                moduleclass.name = (cursor.getString(1));
-                moduleclass.location = (cursor.getString(2));
-                moduleclass.area = (cursor.getString(3));
-                moduleclass.type = (cursor.getString(4));
-                moduleclass.category = (cursor.getString(5));
-                moduleclass.syllabus = (cursor.getString(6));
-                moduleclass.phno = (cursor.getString(7));
-
-                arrayList.add(moduleclass);
+//                ModuleClass moduleclass = new ModuleClass();//import line of code
+//                moduleclass.Slno = Integer.parseInt(cursor.getString(0));
+//                moduleclass.name = (cursor.getString(1));
+//                moduleclass.location = (cursor.getString(2));
+//                moduleclass.area = (cursor.getString(3));
+//                moduleclass.type = (cursor.getString(4));
+//                moduleclass.category = (cursor.getString(5));
+//                moduleclass.syllabus = (cursor.getString(6));
+//                moduleclass.phno = (cursor.getString(7));
+//                arrayList.add(moduleclass);
+                arrayList.add(cursor.getString(1));
                 cursor.moveToNext();
             }
         }
@@ -329,4 +391,6 @@ public class DBHelper extends SQLiteOpenHelper {
         database.close();
         return arrayList;
     }
+
+
 }

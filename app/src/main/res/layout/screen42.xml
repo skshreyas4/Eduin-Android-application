@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="113dp"
+        android:background="#ffffff"
+        card_view:cardBackgroundColor="@android:color/transparent">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="wrap_content"
+            android:layout_height="99dp"
+            android:src="@drawable/circle_img" />
+
+        <TextView
+            android:id="@+id/Schoolname"
+            android:layout_width="319dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="89dp"
+            android:layout_marginBottom="160dp"
+            android:text="TEXT1"
+            android:textColor="#ffffff"/>
+
+        <TextView
+            android:id="@+id/Addss"
+            android:layout_width="319dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="89dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginBottom="160dp"
+            android:text="TEXT1"
+            android:textColor="#ffffff"/>
+
+        <TextView
+            android:id="@+id/contactinfo"
+            android:layout_width="319dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="89dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="160dp"
+            android:text="TEXT1"
+            android:textColor="#ffffff"/>
+
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>
